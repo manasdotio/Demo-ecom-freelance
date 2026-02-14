@@ -969,18 +969,49 @@ input { font-family: inherit; }
   .mobile-menu-toggle { display: flex; }
   .main-nav {
     position: fixed;
-    top: 72px;
+    top: 0;
     left: 0;
-    right: 0;
+    bottom: 0;
+    width: 300px;
+    max-width: 80vw;
     background: var(--color-bg);
-    border-bottom: 1px solid var(--color-border);
-    padding: 24px;
-    transform: translateY(-110%);
-    transition: transform var(--transition);
-    z-index: 99;
+    box-shadow: 4px 0 24px rgba(0,0,0,.12);
+    padding: 88px 32px 40px;
+    transform: translateX(-105%);
+    transition: transform .35s cubic-bezier(.4,0,.2,1);
+    z-index: 101;
+    overflow-y: auto;
   }
-  .main-nav.open { transform: translateY(0); }
-  .main-nav ul { flex-direction: column; gap: 20px; }
+  .main-nav.open { transform: translateX(0); }
+  .main-nav ul {
+    flex-direction: column;
+    gap: 0;
+  }
+  .main-nav li {
+    border-bottom: 1px solid var(--color-border-light);
+  }
+  .main-nav li:last-child { border-bottom: none; }
+  .main-nav a {
+    display: block;
+    padding: 16px 0;
+    font-size: 15px;
+    letter-spacing: 1px;
+  }
+  .main-nav a::after { display: none; }
+
+  .nav-backdrop {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,.4);
+    z-index: 100;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity .3s ease, visibility .3s ease;
+  }
+  .nav-backdrop.visible {
+    opacity: 1;
+    visibility: visible;
+  }
 
   .announcement-bar { font-size: 11px; padding: 8px 16px; }
   .announcement-bar__inner { gap: 6px; }
@@ -1015,6 +1046,12 @@ input { font-family: inherit; }
 }
 
 @media (max-width: 480px) {
+  .header-inner { height: 60px; }
+  .logo img { height: 44px; }
+  .header-actions { gap: 14px; }
+  .header-actions button[aria-label="Account"],
+  .header-actions button[aria-label="Wishlist"] { display: none; }
+
   .announcement-bar { font-size: 10.5px; padding: 7px 12px; letter-spacing: .3px; }
   .announcement-bar__inner {
     flex-wrap: wrap;

@@ -39,6 +39,7 @@
           <li><a href="#">Sale</a></li>
         </ul>
       </nav>
+      <div class="nav-backdrop" id="navBackdrop"></div>
       <div class="header-actions">
         <button aria-label="Search">
           <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
@@ -532,9 +533,25 @@
 
   <script>
     // Mobile menu toggle
-    document.querySelector('.mobile-menu-toggle').addEventListener('click', function () {
-      document.querySelector('.main-nav').classList.toggle('open');
-      this.classList.toggle('active');
+    const menuToggle = document.querySelector('.mobile-menu-toggle');
+    const mainNav = document.querySelector('.main-nav');
+    const navBackdrop = document.getElementById('navBackdrop');
+
+    function toggleMenu() {
+      const isOpen = mainNav.classList.toggle('open');
+      menuToggle.classList.toggle('active');
+      navBackdrop.classList.toggle('visible');
+      document.body.style.overflow = isOpen ? 'hidden' : '';
+    }
+
+    menuToggle.addEventListener('click', toggleMenu);
+    navBackdrop.addEventListener('click', toggleMenu);
+
+    // Close menu on link click
+    mainNav.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
+        if (mainNav.classList.contains('open')) toggleMenu();
+      });
     });
 
     // Tab switching
