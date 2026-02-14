@@ -1,5 +1,5 @@
 /* ========================================================
-   VASTRA — Ethnic Women's Kurta Ecommerce
+   Manna's Wear — Ethnic Women's Kurta Ecommerce
    Design Tokens & Global Styles
    ======================================================== */
 
@@ -1047,7 +1047,7 @@ input { font-family: inherit; }
 
 @media (max-width: 480px) {
   .header-inner { height: 60px; }
-  .logo img { height: 44px; }
+  .logo img { height: 50px; }
   .header-actions { gap: 14px; }
   .header-actions button[aria-label="Account"],
   .header-actions button[aria-label="Wishlist"] { display: none; }
