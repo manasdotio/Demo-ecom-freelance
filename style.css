@@ -84,6 +84,17 @@ input { font-family: inherit; }
   padding: 10px var(--container-px);
   font-size: 12.5px;
   letter-spacing: .5px;
+  overflow: hidden;
+}
+.announcement-bar__inner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  white-space: nowrap;
+}
+.announcement-bar__divider {
+  opacity: .45;
 }
 .announcement-bar strong { color: var(--color-accent-soft); }
 
@@ -971,6 +982,9 @@ input { font-family: inherit; }
   .main-nav.open { transform: translateY(0); }
   .main-nav ul { flex-direction: column; gap: 20px; }
 
+  .announcement-bar { font-size: 11px; padding: 8px 16px; }
+  .announcement-bar__inner { gap: 6px; }
+
   .hero { height: 75vh; min-height: 480px; }
   .hero__content { padding-bottom: 56px; }
   .hero h1 { font-size: 48px; letter-spacing: -1px; }
@@ -1001,6 +1015,15 @@ input { font-family: inherit; }
 }
 
 @media (max-width: 480px) {
+  .announcement-bar { font-size: 10.5px; padding: 7px 12px; letter-spacing: .3px; }
+  .announcement-bar__inner {
+    flex-wrap: wrap;
+    gap: 0;
+    white-space: normal;
+    line-height: 1.5;
+  }
+  .announcement-bar__divider { display: none; }
+
   .hero { height: 65vh; min-height: 400px; }
   .hero__content { padding-bottom: 40px; }
   .hero h1 { font-size: 40px; letter-spacing: -0.8px; }
