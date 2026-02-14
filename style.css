@@ -104,11 +104,13 @@ input { font-family: inherit; }
   height: 72px;
 }
 .logo {
-  font-family: var(--font-heading);
-  font-size: 28px;
-  font-weight: 700;
-  color: var(--color-wine);
-  letter-spacing: 1px;
+  display: flex;
+  align-items: center;
+}
+.logo img {
+  height: 60px;
+  width: auto;
+  object-fit: contain;
 }
 .main-nav ul {
   display: flex;
