@@ -53,54 +53,15 @@
     </div>
   </header>
 
-  <!-- ======== HERO CAROUSEL ======== -->
-  <section class="hero" id="heroCarousel">
-    <div class="hero-bg">
-      <div class="hero-pattern"></div>
-    </div>
-
-    <!-- Slide 1 -->
-    <div class="hero-slide active">
-      <div class="container hero-slide__inner">
-        <div class="hero-slide__text">
-          <span class="hero-tag">Spring Summer '26 Collection</span>
-          <h1>The Art of<br /><em>Timeless Elegance</em></h1>
-          <p>Handcrafted kurtas woven with heritage techniques &mdash; block prints, chikankari, and ajrakh &mdash; reimagined for the modern woman.</p>
-          <div class="hero-actions">
-            <a href="#" class="btn btn-primary">Explore Collection</a>
-            <a href="#" class="btn btn-outline">Our Story</a>
-          </div>
-        </div>
-        <div class="hero-slide__image">
-          <img src="https://images.unsplash.com/photo-1583391733956-6c78276477e2?w=720&h=900&fit=crop&q=80" alt="Woman in elegant wine-coloured embroidered kurta" loading="eager" />
-          <div class="hero-slide__image-overlay"></div>
-        </div>
-      </div>
-    </div>
-
-    <!-- Slide 2 -->
-    <div class="hero-slide">
-      <div class="container hero-slide__inner">
-        <div class="hero-slide__text">
-          <span class="hero-tag">Festive Edit &rsquo;26</span>
-          <h1>Celebrate in<br /><em>Handwoven Grace</em></h1>
-          <p>From intimate poojas to grand celebrations &mdash; discover kurtas that honour tradition while embracing contemporary silhouettes.</p>
-          <div class="hero-actions">
-            <a href="#" class="btn btn-primary">Shop Festive</a>
-            <a href="#" class="btn btn-outline">Lookbook</a>
-          </div>
-        </div>
-        <div class="hero-slide__image">
-          <img src="https://images.unsplash.com/photo-1610030469983-98e550d6193c?w=720&h=900&fit=crop&q=80" alt="Woman in pastel chikankari kurta set" loading="lazy" />
-          <div class="hero-slide__image-overlay"></div>
-        </div>
-      </div>
-    </div>
-
-    <!-- Carousel indicators -->
-    <div class="hero-indicators">
-      <button class="hero-dot active" data-slide="0" aria-label="Slide 1"></button>
-      <button class="hero-dot" data-slide="1" aria-label="Slide 2"></button>
+  <!-- ======== HERO ======== -->
+  <section class="hero">
+    <img class="hero__bg-img" src="https://images.unsplash.com/photo-1594040226829-7f251ab46d80?w=1600&h=900&fit=crop&q=80" alt="Woman in contemporary ethnic wear" loading="eager" />
+    <div class="hero__overlay"></div>
+    <div class="container hero__content">
+      <span class="hero__label">SS &rsquo;26</span>
+      <h1>Quiet<br />Luxury.</h1>
+      <p>Modern kurtas for the woman who lets the craft speak.</p>
+      <a href="#" class="btn btn-hero">Shop the Edit</a>
     </div>
   </section>
 
@@ -579,45 +540,6 @@
         this.classList.add('active');
       });
     });
-
-    // ====== Hero Carousel ======
-    (function () {
-      const carousel = document.getElementById('heroCarousel');
-      if (!carousel) return;
-      const slides = carousel.querySelectorAll('.hero-slide');
-      const dots = carousel.querySelectorAll('.hero-dot');
-      let current = 0;
-      let interval;
-
-      function goTo(index) {
-        slides[current].classList.remove('active');
-        dots[current].classList.remove('active');
-        current = (index + slides.length) % slides.length;
-        slides[current].classList.add('active');
-        dots[current].classList.add('active');
-      }
-
-      function startAutoplay() {
-        interval = setInterval(() => goTo(current + 1), 5000);
-      }
-
-      function stopAutoplay() {
-        clearInterval(interval);
-      }
-
-      dots.forEach(dot => {
-        dot.addEventListener('click', () => {
-          stopAutoplay();
-          goTo(parseInt(dot.dataset.slide, 10));
-          startAutoplay();
-        });
-      });
-
-      carousel.addEventListener('mouseenter', stopAutoplay);
-      carousel.addEventListener('mouseleave', startAutoplay);
-
-      startAutoplay();
-    })();
 
     // Intersection observer for scroll animations
     const observer = new IntersectionObserver((entries) => {
